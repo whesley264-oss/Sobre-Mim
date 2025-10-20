@@ -31,23 +31,33 @@
     <link rel="apple-touch-icon" href="favicon.png">
 
     <!-- Estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
-    <!-- O restante do body permanece o mesmo -->
-    <header>
-        <nav>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div id="main-content" style="visibility: hidden;">
+        <header>
+            <nav>
             <div class="logo">Whesley.dev</div>
             <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#journey">Jornada</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="#home" data-lang-key="navHome">Início</a></li>
+                <li><a href="#about" data-lang-key="navAbout">Sobre</a></li>
+                <li><a href="#journey" data-lang-key="navJourney">Jornada</a></li>
+                <li><a href="#skills" data-lang-key="navSkills">Habilidades</a></li>
+                <li><a href="#projects" data-lang-key="navProjects">Projetos</a></li>
+                <li><a href="#contact" data-lang-key="navContact">Contato</a></li>
             </ul>
-            <button id="theme-toggle">🌙</button>
+            <div class="nav-buttons">
+                <button id="lang-toggle">PT</button>
+                <button id="theme-toggle">🌙</button>
+            </div>
         </nav>
     </header>
 
@@ -55,73 +65,117 @@
         <section id="home">
             <div class="home-content">
                 <img src="https://avatars.githubusercontent.com/u/226873793?v=4" alt="Foto de Perfil de Whesley" class="profile-pic" data-aos="zoom-in">
-                <h1 data-aos="fade-right" data-aos-delay="200">Olá, eu sou o Whesley</h1>
-                <p data-aos="fade-left" data-aos-delay="400">Desenvolvedor Front-End & Explorador Full-Stack</p>
+                <h1 data-aos="fade-right" data-aos-delay="200" data-lang-key="homeTitle">Olá, eu sou o <span id="typing-text"></span></h1>
+                <p data-aos="fade-left" data-aos-delay="400" data-lang-key="homeSubtitle">Desenvolvedor Front-End & Explorador Full-Stack</p>
             </div>
         </section>
 
         <section id="about">
-            <h2 data-aos="fade-down">Sobre Mim</h2>
-            <p data-aos="fade-up">
+            <h2 data-aos="fade-down" data-lang-key="aboutTitle">Sobre Mim</h2>
+            <p data-aos="fade-up" data-lang-key="aboutText">
                 Tenho 13 anos e comecei a programar no início de 2025. Sou um desenvolvedor Front-End apaixonado por tecnologia,
                 mas também gosto de me aventurar em projetos Full-Stack para expandir meus conhecimentos.
             </p>
         </section>
 
         <section id="journey">
-            <h2 data-aos="fade-down">Minha Jornada</h2>
+            <h2 data-aos="fade-down" data-lang-key="journeyTitle">Minha Jornada</h2>
             <div class="journey-content" data-aos="fade-up">
-                <p>Sempre achei a programação interessante e decidi explorar esse universo. No começo, me senti um pouco perdido sobre qual linguagem escolher, então comecei com projetos de iniciante, como calculadoras. Aos poucos, fui avançando e hoje já construo pequenos projetos Full-Stack com servidores em Python e banco de dados, escolhendo as tecnologias que mais me despertam curiosidade a cada passo.</p>
+                <p data-lang-key="journeyText">Sempre achei a programação interessante e decidi explorar esse universo. No começo, me senti um pouco perdido sobre qual linguagem escolher, então comecei com projetos de iniciante, como calculadoras. Aos poucos, fui avançando e hoje já construo pequenos projetos Full-Stack com servidores em Python e banco de dados, escolhendo as tecnologias que mais me despertam curiosidade a cada passo.</p>
             </div>
-            <h3 data-aos="fade-down" data-aos-delay="200">Meus Objetivos</h3>
-            <p data-aos="fade-up" data-aos-delay="200">
+            <h3 data-aos="fade-down" data-aos-delay="200" data-lang-key="goalsTitle">Meus Objetivos</h3>
+            <p data-aos="fade-up" data-aos-delay="200" data-lang-key="goalsText">
                 Recentemente, estudei Python e agora estou 100% focado em dominar completamente o trio essencial: HTML, CSS e JavaScript. Para o futuro, estou animado com a possibilidade de aprender linguagens como Java, PHP ou Rust para ampliar ainda mais meu repertório.
             </p>
         </section>
 
         <section id="skills">
-            <h2 data-aos="fade-down">Habilidades</h2>
+            <h2 data-aos="fade-down" data-lang-key="skillsTitle">Habilidades</h2>
             <div class="skills-container">
-                <span data-aos="fade-up" data-aos-delay="0">HTML</span>
-                <span data-aos="fade-up" data-aos-delay="100">CSS</span>
-                <span data-aos="fade-up" data-aos-delay="200">JavaScript</span>
-                <span data-aos="fade-up" data-aos-delay="300">React</span>
-                <span data-aos="fade-up" data-aos-delay="400">C</span>
-                <span data-aos="fade-up" data-aos-delay="500">Python</span>
+                <div class="skill-icon" data-tooltip="HTML5" data-aos="fade-up" data-aos-delay="0">
+                    <i class="fab fa-html5"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="CSS3" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fab fa-css3-alt"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="JavaScript" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-js-square"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="React" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fab fa-react"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="C" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-file-code"></i>
+                </div>
+                <div class="skill-icon" data-tooltip="Python" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fab fa-python"></i>
+                </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2 data-aos="fade-down">Meus Projetos</h2>
+            <h2 data-aos="fade-down" data-lang-key="projectsTitle">Meus Projetos</h2>
             <div class="projects-container">
-                <div class="project-card" data-aos="fade-up">
-                    <h3>To-do List Minimalista</h3>
-                    <p>Uma lista de tarefas com funcionalidade de arrastar e soltar.</p>
-                    <a href="https://github.com/whesley264-oss/To-do-list.git" target="_blank">Ver no GitHub</a>
+                <div class="project-card" data-aos="fade-up"
+                     data-title="To-do List Minimalista"
+                     data-img="img/todo-list.png"
+                     data-description="Uma aplicação de lista de tarefas simples e funcional com uma interface limpa. Permite adicionar, remover e marcar tarefas como concluídas, com os dados salvos localmente no navegador."
+                     data-tech="HTML, CSS, JavaScript"
+                     data-github-url="https://github.com/whesley264-oss/To-do-list.git"
+                     data-repo="whesley264-oss/To-do-list"
+                     data-lang-key="project1">
+                    <h3 data-lang-key="project1Title">To-do List Minimalista</h3>
+                    <p data-lang-key="project1Desc">Uma lista de tarefas com funcionalidade de arrastar e soltar.</p>
+                    <button class="project-details-btn" data-lang-key="projectBtn">Ver Detalhes</button>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Portfólio Animado</h3>
-                    <p>Um portfólio completo com foco em animações e efeitos visuais.</p>
-                    <a href="https://github.com/whesley264-oss/Portifolio-Project.git" target="_blank">Ver no GitHub</a>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100"
+                     data-title="Portfólio Animado"
+                     data-img="img/animated-portfolio.png"
+                     data-description="Um portfólio pessoal dinâmico construído com foco em animações CSS e interatividade para criar uma experiência de usuário memorável."
+                     data-tech="HTML, CSS, JavaScript"
+                     data-github-url="https://github.com/whesley264-oss/Portifolio-Project.git"
+                     data-repo="whesley264-oss/Portifolio-Project"
+                     data-lang-key="project2">
+                    <h3 data-lang-key="project2Title">Portfólio Animado</h3>
+                    <p data-lang-key="project2Desc">Um portfólio completo com foco em animações e efeitos visuais.</p>
+                    <button class="project-details-btn" data-lang-key="projectBtn">Ver Detalhes</button>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Telas de Login</h3>
-                    <p>Uma coleção de telas de login inspiradas em diversas plataformas.</p>
-                    <a href="https://github.com/whesley264-oss/MultiSing.git" target="_blank">Ver no GitHub</a>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200"
+                     data-title="Telas de Login"
+                     data-img="img/login-screens.png"
+                     data-description="Uma coleção de telas de login modernas e responsivas, cada uma com um design diferente, inspiradas em grandes plataformas digitais."
+                     data-tech="HTML, CSS"
+                     data-github-url="https://github.com/whesley264-oss/MultiSing.git"
+                     data-repo="whesley264-oss/MultiSing"
+                     data-lang-key="project3">
+                    <h3 data-lang-key="project3Title">Telas de Login</h3>
+                    <p data-lang-key="project3Desc">Uma coleção de telas de login inspiradas em diversas plataformas.</p>
+                    <button class="project-details-btn" data-lang-key="projectBtn">Ver Detalhes</button>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2 data-aos="fade-down">Entre em Contato</h2>
-            <p data-aos="fade-up">Tem alguma pergunta ou quer conversar sobre um projeto? Me envie uma mensagem!</p>
+            <h2 data-aos="fade-down" data-lang-key="contactTitle">Entre em Contato</h2>
+            <p data-aos="fade-up" data-lang-key="contactText">Tem alguma pergunta ou quer conversar sobre um projeto? Me envie uma mensagem!</p>
             <form action="https://formspree.io/f/coloque_seu_id_aqui" method="POST" data-aos="fade-up">
-                <input type="text" name="name" placeholder="Seu Nome" required>
-                <input type="email" name="email" placeholder="Seu E-mail" required>
-                <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
-                <button type="submit">Enviar Mensagem</button>
+                <input type="text" name="name" placeholder="Seu Nome" data-lang-key="formName" required>
+                <input type="email" name="email" placeholder="Seu E-mail" data-lang-key="formEmail" required>
+                <textarea name="message" rows="5" placeholder="Sua Mensagem" data-lang-key="formMessage" required></textarea>
+                <button type="submit" data-lang-key="formButton">Enviar Mensagem</button>
             </form>
-            <div class="contact-links-footer" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="email-container" data-aos="fade-up" data-aos-delay="100">
+                <p data-lang-key="contactOr">ou me envie um e-mail diretamente</p>
+                <div class="email-address-box">
+                    <span id="email-address">whesley264@gmail.com</span>
+                    <button id="copy-email-btn" title="Copiar e-mail" data-lang-key="copyTooltip">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="contact-links-footer" data-aos="fade-up" data-aos-delay="200">
                 <a href="https://github.com/whesley264-oss" target="_blank">GitHub</a>
                 <a href="https://www.instagram.com/whesley.dev?igsh=MXdlbTVoazFlMXg4Zg==" target="_blank">Instagram</a>
             </div>
@@ -133,9 +187,38 @@
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 
     <!-- Botão Voltar ao Topo -->
     <button id="back-to-top" title="Voltar ao topo">↑</button>
+
+    <!-- Banner de Cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p data-lang-key="cookieText">
+            Este site utiliza cookies para salvar suas preferências de tema. Ao continuar a navegar, você concorda com nosso uso de cookies.
+        </p>
+        <button id="cookie-accept-btn" data-lang-key="cookieBtn">Entendi</button>
+    </div>
+    </div>
+
+    <!-- Estrutura do Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modal-img" src="" alt="Imagem do Projeto">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div class="modal-tech">
+                <strong data-lang-key="modalTech">Tecnologias:</strong> <span id="modal-tech-list"></span>
+            </div>
+            <div id="modal-stats" class="modal-stats">
+                <span class="stat"><i class="fas fa-star"></i> <span id="modal-stars">--</span></span>
+                <span class="stat"><i class="fas fa-code-branch"></i> <span id="modal-forks">--</span></span>
+            </div>
+            <a id="modal-github-link" href="#" target="_blank" class="modal-link" data-lang-key="modalGithubBtn">Ver no GitHub</a>
+        </div>
+    </div>
 </body>
 </html>
