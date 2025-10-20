@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     // --- Lógica de Troca de Tema ---
-
-    // Função para aplicar o tema e salvar a preferência
     const applyTheme = (theme) => {
         if (theme === 'light') {
             body.classList.remove('dark-theme');
@@ -19,11 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Verifica o tema salvo no localStorage ao carregar a página
-    const savedTheme = localStorage.getItem('theme') || 'dark'; // Padrão para o tema escuro
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     applyTheme(savedTheme);
 
-    // Event listener para o botão de troca de tema
     themeToggle.addEventListener('click', () => {
         const currentTheme = localStorage.getItem('theme') || 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -31,19 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Lógica de Rolagem Suave ---
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
+    });
+
+    // --- Inicialização da Biblioteca de Animações (AOS) ---
+    AOS.init({
+        duration: 800, // Duração da animação em ms
+        once: true,    // Animação acontece apenas uma vez
+        offset: 50,    // "Gatilho" da animação um pouco antes do elemento aparecer
     });
 });

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whesley | Desenvolvedor Front-End</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
@@ -14,6 +15,7 @@
             <ul>
                 <li><a href="#home">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
+                <li><a href="#journey">Jornada</a></li>
                 <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#projects">Projetos</a></li>
                 <li><a href="#contact">Contato</a></li>
@@ -25,46 +27,58 @@
     <main>
         <section id="home">
             <div class="home-content">
-                <img src="https://avatars.githubusercontent.com/u/226873793?v=4" alt="Foto de Perfil de Whesley" class="profile-pic">
-                <h1>Olá, eu sou o Whesley</h1>
-                <p>Desenvolvedor Front-End</p>
+                <img src="https://avatars.githubusercontent.com/u/226873793?v=4" alt="Foto de Perfil de Whesley" class="profile-pic" data-aos="zoom-in">
+                <h1 data-aos="fade-right" data-aos-delay="200">Olá, eu sou o Whesley</h1>
+                <p data-aos="fade-left" data-aos-delay="400">Desenvolvedor Front-End & Explorador Full-Stack</p>
             </div>
         </section>
 
         <section id="about">
-            <h2>Sobre Mim</h2>
-            <p>
+            <h2 data-aos="fade-down">Sobre Mim</h2>
+            <p data-aos="fade-up">
                 Tenho 13 anos e comecei a programar no início de 2025. Sou um desenvolvedor Front-End apaixonado por tecnologia,
                 mas também gosto de me aventurar em projetos Full-Stack para expandir meus conhecimentos.
             </p>
         </section>
 
+        <section id="journey">
+            <h2 data-aos="fade-down">Minha Jornada</h2>
+            <div class="journey-content" data-aos="fade-up">
+                <p>Sempre achei a programação interessante e decidi explorar esse universo. No começo, me senti um pouco perdido sobre qual linguagem escolher, então comecei com projetos de iniciante, como calculadoras. Aos poucos, fui avançando e hoje já construo pequenos projetos Full-Stack com servidores em Python e banco de dados, escolhendo as tecnologias que mais me despertam curiosidade a cada passo.</p>
+            </div>
+            <h3 data-aos="fade-down" data-aos-delay="200">Meus Objetivos</h3>
+            <p data-aos="fade-up" data-aos-delay="200">
+                Recentemente, estudei Python e agora estou 100% focado em dominar completamente o trio essencial: HTML, CSS e JavaScript. Para o futuro, estou animado com a possibilidade de aprender linguagens como Java, PHP ou Rust para ampliar ainda mais meu repertório.
+            </p>
+        </section>
+
+
         <section id="skills">
-            <h2>Habilidades</h2>
+            <h2 data-aos="fade-down">Habilidades</h2>
             <div class="skills-container">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>React</span>
-                <span>C</span>
-                <span>Python</span>
+                <span data-aos="fade-up" data-aos-delay="0">HTML</span>
+                <span data-aos="fade-up" data-aos-delay="100">CSS</span>
+                <span data-aos="fade-up" data-aos-delay="200">JavaScript</span>
+                <span data-aos="fade-up" data-aos-delay="300">React</span>
+                <span data-aos="fade-up" data-aos-delay="400">C</span>
+                <span data-aos="fade-up" data-aos-delay="500">Python</span>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Meus Projetos</h2>
+            <h2 data-aos="fade-down">Meus Projetos</h2>
             <div class="projects-container">
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up">
                     <h3>To-do List Minimalista</h3>
                     <p>Uma lista de tarefas com funcionalidade de arrastar e soltar.</p>
                     <a href="https://github.com/whesley264-oss/To-do-list.git" target="_blank">Ver no GitHub</a>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Portfólio Animado</h3>
                     <p>Um portfólio completo com foco em animações e efeitos visuais.</p>
                     <a href="https://github.com/whesley264-oss/Portifolio-Project.git" target="_blank">Ver no GitHub</a>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <h3>Telas de Login</h3>
                     <p>Uma coleção de telas de login inspiradas em diversas plataformas.</p>
                     <a href="https://github.com/whesley264-oss/MultiSing.git" target="_blank">Ver no GitHub</a>
@@ -73,10 +87,22 @@
         </section>
 
         <section id="contact">
-            <h2>Contato</h2>
-            <p>Vamos conversar! Você pode me encontrar nas seguintes plataformas:</p>
-            <div class="contact-links">
-                <a href="mailto:whesley264@gmail.com">Email</a>
+            <h2 data-aos="fade-down">Entre em Contato</h2>
+            <p data-aos="fade-up">Tem alguma pergunta ou quer conversar sobre um projeto? Me envie uma mensagem!</p>
+            <!--
+                INSTRUÇÃO PARA WHESLEY:
+                1. Vá para o site formspree.io e crie uma conta gratuita.
+                2. Crie um novo formulário (New Form) e aponte para o seu e-mail whesley264@gmail.com.
+                3. O Formspree vai te dar um link parecido com "https://formspree.io/f/xxxxxxxx".
+                4. Copie esse link e cole no atributo 'action' do formulário abaixo.
+            -->
+            <form action="https://formspree.io/f/coloque_seu_id_aqui" method="POST" data-aos="fade-up">
+                <input type="text" name="name" placeholder="Seu Nome" required>
+                <input type="email" name="email" placeholder="Seu E-mail" required>
+                <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+            <div class="contact-links-footer" data-aos="fade-up" data-aos-delay="100">
                 <a href="https://github.com/whesley264-oss" target="_blank">GitHub</a>
                 <a href="https://www.instagram.com/whesley.dev?igsh=MXdlbTVoazFlMXg4Zg==" target="_blank">Instagram</a>
             </div>
@@ -87,6 +113,7 @@
         <p>&copy; 2025 Whesley.dev. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
