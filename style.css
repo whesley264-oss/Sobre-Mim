@@ -203,3 +203,40 @@ body.light-theme footer { background-color: #e5e7eb; }
     #home p { font-size: 1.2em; }
     h2 { font-size: 2em; }
 }
+
+/* --- Botão Voltar ao Topo --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+body.dark-theme #back-to-top {
+    background-color: var(--primary-dark);
+    color: var(--bg-dark);
+}
+
+body.light-theme #back-to-top {
+    background-color: var(--primary-light);
+    color: var(--bg-light);
+}

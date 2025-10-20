@@ -44,4 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true,    // Animação acontece apenas uma vez
         offset: 50,    // "Gatilho" da animação um pouco antes do elemento aparecer
     });
+
+    // --- Lógica do Botão Voltar ao Topo ---
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Mostra o botão após rolar 300px
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
