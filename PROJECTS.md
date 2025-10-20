@@ -23,5 +23,5 @@ Aqui está uma lista detalhada dos meus projetos. Cada um representa um desafio 
 ### Coleção de Telas de Login
 
 *   **Descrição:** Uma coleção de clones de telas de login de plataformas populares, criada para praticar e aprimorar minhas habilidades em HTML e CSS, focando na fidelidade visual e na estruturação do código.
-*   **Tecnologias:** HTML, CSS.
+*   **Tecnologias:** HTML, CSS, Javascript.
 *   **Link do Repositório:** [MultiSing no GitHub](https://github.com/whesley264-oss/MultiSing.git)
