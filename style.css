@@ -570,38 +570,6 @@ footer {
 body.dark-theme footer { background-color: var(--card-dark); }
 body.light-theme footer { background-color: #e5e7eb; }
 
-/* --- Preloader --- */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.5s ease-out;
-}
-body.dark-theme #preloader { background-color: var(--bg-dark); }
-body.light-theme #preloader { background-color: var(--bg-light); }
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 5px solid;
-    border-top-color: transparent;
-    animation: spin 1s linear infinite;
-}
-body.dark-theme .spinner { border-color: var(--primary-dark); border-top-color: transparent; }
-body.light-theme .spinner { border-color: var(--primary-light); border-top-color: transparent; }
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* --- Banner de Cookies --- */
 .cookie-banner {
     position: fixed;
