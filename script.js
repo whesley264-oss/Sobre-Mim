@@ -1,19 +1,19 @@
-// --- Lógica do Preloader ---
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Lógica do Preloader ---
     const preloader = document.getElementById('preloader');
     const mainContent = document.getElementById('main-content');
 
-    // Esconde o preloader com um fade-out
-    preloader.style.opacity = '0';
+    const hidePreloader = () => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            mainContent.style.visibility = 'visible';
+        }, 500); // Duração da transição do fade-out
+    };
 
-    // Remove o preloader e mostra o conteúdo principal após a transição
-    setTimeout(() => {
-        preloader.style.display = 'none';
-        mainContent.style.visibility = 'visible';
-    }, 500); // Deve ser igual à duração da transição no CSS
-};
+    // Esconde o preloader após 2 segundos, independentemente do carregamento
+    setTimeout(hidePreloader, 2000);
 
-document.addEventListener('DOMContentLoaded', () => {
     // Atribuição de elementos da paleta de comandos
     commandPalette = document.getElementById('command-palette');
     commandInput = document.getElementById('command-input');
