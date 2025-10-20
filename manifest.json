@@ -1,0 +1,21 @@
+{
+  "name": "Whesley.dev | Portfólio",
+  "short_name": "Whesley.dev",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#1a1d24",
+  "theme_color": "#8a9aeb",
+  "description": "Portfólio de Whesley, um desenvolvedor Front-End apaixonado por tecnologia.",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

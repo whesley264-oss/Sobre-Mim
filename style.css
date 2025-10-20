@@ -110,8 +110,22 @@ body.light-theme h3 { color: var(--primary-light); }
 
 /* --- Seções Específicas --- */
 #home {
+    position: relative; /* Necessário para o posicionamento do particles-js */
     min-height: 80vh; display: flex; align-items: center;
     justify-content: center; text-align: center;
+    overflow: hidden; /* Garante que as partículas não vazem */
+}
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.home-content {
+    position: relative;
+    z-index: 2;
 }
 .profile-pic {
     width: 150px; height: 150px; border-radius: 50%;
@@ -143,14 +157,18 @@ body.light-theme .typed-cursor { color: var(--primary-light); }
 .skill-icon {
     position: relative;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 .skill-icon:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.05);
 }
 .skill-icon i {
     font-size: 4rem;
     transition: color 0.3s ease;
+    filter: drop-shadow(0 0 0 rgba(0,0,0,0)); /* Estado inicial para transição */
+}
+.skill-icon:hover i {
+    filter: drop-shadow(0 0 15px currentColor);
 }
 .skill-icon .fa-html5 { color: #E34F26; }
 .skill-icon .fa-css3-alt { color: #1572B6; }
@@ -183,6 +201,30 @@ body.dark-theme .skill-icon::after {
 body.light-theme .skill-icon::after {
     background-color: var(--primary-light);
     color: var(--bg-light);
+}
+
+/* --- Cursor Personalizado --- */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out, width 0.2s, height 0.2s;
+    transform: translate(-50%, -50%);
+}
+body.dark-theme .custom-cursor { border: 2px solid var(--primary-dark); }
+body.light-theme .custom-cursor { border: 2px solid var(--primary-light); }
+
+.custom-cursor.hover {
+    width: 40px;
+    height: 40px;
+}
+body, a, button {
+    cursor: none;
 }
 
 /* --- Estilos de Impressão --- */
@@ -243,6 +285,9 @@ body.light-theme .skill-icon::after {
     .project-card {
         border: 1px solid #ccc;
         page-break-inside: avoid;
+    }
+    .project-card h3, .project-card p {
+        display: block; /* Garante que sejam visíveis */
     }
 }
 
@@ -370,6 +415,13 @@ body.dark-theme .modal-stats {
     color: #ffc107; /* Cor de estrela */
 }
 
+.modal-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
 .modal-link {
     display: inline-block;
     text-decoration: none;
@@ -381,6 +433,27 @@ body.dark-theme .modal-stats {
 .modal-link:hover { transform: translateY(-3px); }
 body.dark-theme .modal-link { background-color: var(--primary-dark); color: var(--bg-dark); }
 body.light-theme .modal-link { background-color: var(--primary-light); color: var(--bg-light); }
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+}
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: transform 0.2s;
+}
+.share-btn:hover {
+    transform: scale(1.1);
+}
+.share-btn.twitter { background-color: #1DA1F2; color: #fff; }
+.share-btn.linkedin { background-color: #0077B5; color: #fff; }
 
 .project-details-btn {
     display: inline-block; margin-top: 15px; text-decoration: none;
@@ -564,6 +637,48 @@ body.light-theme .cookie-banner { background-color: #e5e7eb; }
 }
 body.dark-theme #cookie-accept-btn { background-color: var(--primary-dark); color: var(--bg-dark); }
 body.light-theme #cookie-accept-btn { background-color: var(--primary-light); color: var(--bg-light); }
+
+
+/* --- Paleta de Comandos --- */
+.command-palette-content {
+    position: relative;
+    margin: 5% auto;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    animation: slideIn 0.3s ease-out;
+}
+body.dark-theme .command-palette-content { background-color: var(--card-dark); }
+body.light-theme .command-palette-content { background-color: var(--card-light); box-shadow: 0 10px 25px var(--shadow-light); }
+
+#command-input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    outline: none;
+}
+body.dark-theme #command-input { background-color: var(--card-dark); color: var(--text-dark); }
+body.light-theme #command-input { background-color: var(--card-light); color: var(--text-light); }
+
+#command-results {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+#command-results li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#command-results li.selected {
+    /* Estilo do item selecionado com o teclado */
+}
+body.dark-theme #command-results li:hover, body.dark-theme #command-results li.selected { background-color: rgba(138, 154, 235, 0.2); }
+body.light-theme #command-results li:hover, body.light-theme #command-results li.selected { background-color: #e5e7eb; }
 
 
 /* --- Responsividade --- */

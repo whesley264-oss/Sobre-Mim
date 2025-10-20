@@ -25,10 +25,32 @@
     <meta name="twitter:description" content="Conheça os projetos e a jornada de Whesley, um jovem desenvolvedor construindo o futuro da web.">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/226873793?v=4">
 
+    <!-- Cole seu snippet do Google Analytics aqui -->
+
+    <!-- Schema.org for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Whesley",
+      "url": "URL_DO_SEU_SITE_AQUI",
+      "sameAs": [
+        "https://github.com/whesley264-oss",
+        "https://www.instagram.com/whesley.dev?igsh=MXdlbTVoazFlMXg4Zg=="
+      ],
+      "jobTitle": "Desenvolvedor Front-End",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Whesley.dev"
+      }
+    }
+    </script>
+
     <!-- Favicon Links -->
     <!-- Instrução: Adicione sua imagem como 'favicon.png' na raiz do projeto -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
 
     <!-- Estilos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,6 +58,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
+    <div class="custom-cursor"></div>
     <!-- Preloader -->
     <div id="preloader">
         <div class="spinner"></div>
@@ -63,6 +86,7 @@
 
     <main>
         <section id="home">
+            <div id="particles-js"></div>
             <div class="home-content">
                 <img src="https://avatars.githubusercontent.com/u/226873793?v=4" alt="Foto de Perfil de Whesley" class="profile-pic" data-aos="zoom-in">
                 <h1 data-aos="fade-right" data-aos-delay="200" data-lang-key="homeTitle">Olá, eu sou o <span id="typing-text"></span></h1>
@@ -116,9 +140,9 @@
         <section id="projects">
             <h2 data-aos="fade-down" data-lang-key="projectsTitle">Meus Projetos</h2>
             <div class="projects-container">
-                <div class="project-card" data-aos="fade-up"
+                <div class="project-card" data-aos="fade-up" data-tilt
                      data-title="To-do List Minimalista"
-                     data-img="img/todo-list.png"
+                     data-img="img/projeto1.jpg"
                      data-description="Uma aplicação de lista de tarefas simples e funcional com uma interface limpa. Permite adicionar, remover e marcar tarefas como concluídas, com os dados salvos localmente no navegador."
                      data-tech="HTML, CSS, JavaScript"
                      data-github-url="https://github.com/whesley264-oss/To-do-list.git"
@@ -128,9 +152,9 @@
                     <p data-lang-key="project1Desc">Uma lista de tarefas com funcionalidade de arrastar e soltar.</p>
                     <button class="project-details-btn" data-lang-key="projectBtn">Ver Detalhes</button>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100"
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-tilt
                      data-title="Portfólio Animado"
-                     data-img="img/animated-portfolio.png"
+                     data-img="img/projeto2.jpg"
                      data-description="Um portfólio pessoal dinâmico construído com foco em animações CSS e interatividade para criar uma experiência de usuário memorável."
                      data-tech="HTML, CSS, JavaScript"
                      data-github-url="https://github.com/whesley264-oss/Portifolio-Project.git"
@@ -140,9 +164,9 @@
                     <p data-lang-key="project2Desc">Um portfólio completo com foco em animações e efeitos visuais.</p>
                     <button class="project-details-btn" data-lang-key="projectBtn">Ver Detalhes</button>
                 </div>
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200"
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-tilt
                      data-title="Telas de Login"
-                     data-img="img/login-screens.png"
+                     data-img="img/projeto3.jpg"
                      data-description="Uma coleção de telas de login modernas e responsivas, cada uma com um design diferente, inspiradas em grandes plataformas digitais."
                      data-tech="HTML, CSS"
                      data-github-url="https://github.com/whesley264-oss/MultiSing.git"
@@ -188,6 +212,8 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script src="translations.js"></script>
     <script src="script.js"></script>
 
@@ -207,7 +233,7 @@
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <img id="modal-img" src="" alt="Imagem do Projeto">
+            <img id="modal-img" src="" alt="Imagem do Projeto" loading="lazy">
             <h2 id="modal-title"></h2>
             <p id="modal-description"></p>
             <div class="modal-tech">
@@ -217,7 +243,21 @@
                 <span class="stat"><i class="fas fa-star"></i> <span id="modal-stars">--</span></span>
                 <span class="stat"><i class="fas fa-code-branch"></i> <span id="modal-forks">--</span></span>
             </div>
-            <a id="modal-github-link" href="#" target="_blank" class="modal-link" data-lang-key="modalGithubBtn">Ver no GitHub</a>
+            <div class="modal-links">
+                <a id="modal-github-link" href="#" target="_blank" class="modal-link" data-lang-key="modalGithubBtn">Ver no GitHub</a>
+                <div class="share-buttons">
+                    <a id="share-twitter" href="#" target="_blank" class="share-btn twitter" title="Compartilhar no Twitter"><i class="fab fa-twitter"></i></a>
+                    <a id="share-linkedin" href="#" target="_blank" class="share-btn linkedin" title="Compartilhar no LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paleta de Comandos -->
+    <div id="command-palette" class="modal">
+        <div class="command-palette-content">
+            <input type="text" id="command-input" placeholder="Navegar para...">
+            <ul id="command-results"></ul>
         </div>
     </div>
 </body>
