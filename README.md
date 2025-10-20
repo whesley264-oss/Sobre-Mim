@@ -7,9 +7,7 @@
 
 ### 👨‍💻 Sobre Mim
 
-Olá! Sou Whesley, um desenvolvedor front-end apaixonado por criar interfaces de usuário bonitas e funcionais.
-
-*(Esta é uma biografia de espaço reservado. Sinta-se à vontade para editá-la!)*
+Tenho 13 anos e comecei a programar no início de 2025. Sou um desenvolvedor Front-End apaixonado por tecnologia, mas também gosto de me aventurar em projetos Full-Stack para expandir meus conhecimentos.
 
 ---
 
